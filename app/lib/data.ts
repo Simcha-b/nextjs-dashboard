@@ -10,6 +10,11 @@ import {
 import { formatCurrency } from './utils';
 
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+  console.log('POSTGRES_URL:', process.env.POSTGRES_URL);
+
+if (process.env.NODE_ENV === 'production') {
+  console.log('POSTGRES_URL:', process.env.POSTGRES_URL);
+}
 
 export async function fetchRevenue() {
   try {
